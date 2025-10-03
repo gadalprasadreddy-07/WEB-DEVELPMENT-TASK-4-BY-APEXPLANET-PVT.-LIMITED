@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Fourth Task In ApexPlanet Internship</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">My Project</div>
+    <div class="nav-right">
+      <a onclick="showSection('portfolio')">Portfolio</a>
+      <a onclick="showSection('todo')">To-Do</a>
+      <a onclick="showSection('products')">Products</a>
+      <button class="toggle-btn" onclick="toggleTheme()">🌙 Dark/Light</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a onclick="showSection('portfolio');toggleMenu()">Portfolio</a>
+    <a onclick="showSection('todo');toggleMenu()">To-Do</a>
+    <a onclick="showSection('products');toggleMenu()">Products</a>
+    <button onclick="toggleTheme()">🌙 Dark/Light</button>
+  </div>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="active">
+    <img src="My Profile.jpg" alt="Profile" class="profile-img">
+    <h1>My Portfolio</h1>
+    <p>Hello, I am <b>Gadal Prasad Reddy</b>. a B.Tech student with a passion for software engineering 
+       and web development. My goal is to craft scalable applications that solve real-world problems 
+       using Python, HTML, CSS, and JavaScript. Let’s build something great together!</p>
+    <h2>Projects</h2>
+    <ul style="text-align:center; list-style-type:none; padding:0;">
+      <li>✅ Restaurant Menu(Mini Project)</li>
+      <li>✅ E-commerce Mobile Store</li>
+      <li>✅ Portfolio Website</li>
+      <li>✅ To-Do App</li>
+    </ul>
+    <br>
+    <br>
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- To-Do -->
+  <section id="todo" class="todo">
+    <h2>My To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+  <h2>Product List</h2>
+  <div class="controls">
+    <select id="filter" onchange="filterProducts()">
+      <option value="all">All</option>
+      <option value="electronics">Electronics</option>
+      <option value="clothes">Clothes</option>
+    </select>
+    <select id="sort" onchange="sortProducts()">
+      <option value="default">Sort By</option>
+      <option value="low-high">Price: Low to High</option>
+      <option value="high-low">Price: High to Low</option>
+    </select>
+  </div>
+  <div id="productList"></div>
+</section>
+  <script src="script.js"></script>
+</body>
+</html>
