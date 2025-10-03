@@ -1,0 +1,204 @@
+/* ===== Base Theme ===== */
+    :root {
+      --bg: #f9f9f9;
+      --text: #222;
+      --nav: #0d6efd;
+      --card: #fff;
+      --accent: #0d6efd;
+      --shadow: 0 4px 15px rgba(0,0,0,0.1);
+      --hover: #e0e0e0;
+      --input-bg: #fff;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --nav: #1f1f1f;
+      --card: #1e1e1e;
+      --accent: #0d6efd;
+      --shadow: 0 4px 15px rgba(255,255,255,0.05);
+      --hover: #2a2a2a;
+      --input-bg: #2a2a2a;
+    }
+
+    /* ===== Global ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.4s ease;
+    }
+    a { text-decoration: none; }
+
+    /* ===== Navbar ===== */
+    nav {
+      background: var(--nav);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .logo { color: white; font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+    .nav-right { display: flex; align-items: center; gap: 15px; }
+    .nav-right a, .nav-right button { 
+      color: white; font-weight: 600; cursor: pointer; padding: 8px 14px; border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    .nav-right a:hover, .nav-right button:hover { 
+      background: rgba(255,255,255,0.2); transform: scale(1.05);
+    }
+    .toggle-btn {
+      display: flex; align-items: center; gap: 5px; border: none; font-weight: bold;
+      background: var(--accent); padding: 8px 16px; border-radius: 30px; box-shadow: var(--shadow);
+    }
+
+    /* ===== Hamburger ===== */
+    .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+    .hamburger div { width: 25px; height: 3px; background: white; border-radius: 2px; }
+    .mobile-menu {
+      display: none; flex-direction: column; background: var(--nav); padding: 10px;
+      position: absolute; top: 60px; right: 0; width: 200px; border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu a, .mobile-menu button { color: white; padding: 10px; border-radius: 8px; font-weight: 600; }
+    .mobile-menu a:hover, .mobile-menu button:hover { background: rgba(255,255,255,0.2); }
+
+    /* ===== Sections ===== */
+    section { display: none; padding: 50px 20px; max-width: 1000px; margin: auto; animation: fadeIn 0.4s ease; }
+    section.active { display: block; }
+    @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+
+    h1, h2 { margin-bottom: 20px; text-align: center; }
+    p { margin-bottom: 15px; line-height: 1.6; text-align: center; }
+
+    /* ===== Profile Image ===== */
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 20px auto;
+      border: 4px solid var(--accent);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+    }
+    .profile-img:hover { transform: scale(1.05); }
+
+    /* ===== Form Styling ===== */
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 450px;
+      margin-inline: auto;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+    form input, form textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: var(--input-bg);
+      color: var(--text);
+      transition: all 0.3s;
+    }
+    form input:focus, form textarea:focus {
+      border: 1.5px solid var(--accent);
+      outline: none;
+    }
+    form button {
+      padding: 12px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    form button:hover { background: #0b5ed7; transform: scale(1.05); }
+
+    /* ===== To-Do Styling ===== */
+    .todo input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 70%;
+      background: var(--input-bg);
+      color: var(--text);
+      transition: all 0.3s;
+    }
+    .todo input:focus { border-color: var(--accent); outline: none; }
+    .todo button {
+      padding: 12px 16px;
+      margin-left: 5px;
+      border-radius: 10px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: var(--shadow);
+    }
+    .todo button:hover { background: #0b5ed7; transform: scale(1.05); }
+    .todo ul { margin-top: 15px; list-style: none; padding: 0; }
+    .todo li {
+      background: var(--card);
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+    .todo li:hover { transform: translateX(5px); }
+    .todo li button { background: #ff4d4d; padding: 6px 10px; border-radius: 5px; }
+
+    /* ===== Products ===== */
+    .controls {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .controls select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: var(--input-bg);
+      color: var(--text);
+      transition: all 0.3s;
+    }
+    .controls select:focus { border-color: var(--accent); outline: none; }
+    #productList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: var(--card);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .product:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .nav-right { display: none; }
+      .hamburger { display: flex; }
+    }
+    .show { display: flex !important; }
